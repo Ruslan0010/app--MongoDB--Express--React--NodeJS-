@@ -1,5 +1,11 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
+
+mongoose
+.connect('mongodb+srv://ruslankuchynskyi1:1234567@cluster0.xhabo44.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+.then(() => console.log('DB ok'))
+.catch(() => console.log('DB error', err));
 
 const app = express();
 
@@ -12,13 +18,16 @@ app.get('/', (req, res) =>{
 app.post('/auth/login', (req, res) =>{
     console.log(req.body);
 
-const token = jwt.sign(
+
+if (req.body.email == 'test@test.com'){
+    const token = jwt.sign(
     {
     email: req.body.email,
     fullName: 'Ruslan Kuchynskyi',
     }, 
     'secret123',
 );
+}
 
     res.json({
         success: true,
@@ -31,5 +40,5 @@ app.listen(4444, (err) =>{
         return console.log(err);
     }
   
-    console.log('Server OK');
+    console.log('Server OK'); 
 });
