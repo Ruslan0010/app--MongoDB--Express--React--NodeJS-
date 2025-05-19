@@ -3,9 +3,9 @@ import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 
 mongoose
-.connect('mongodb+srv://ruslankuchynskyi1:1234567@cluster0.xhabo44.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+.connect('mongodb+srv://ruslan0010:Z0PuoQlMDjPSFcRd@cluster0.xhabo44.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 .then(() => console.log('DB ok'))
-.catch(() => console.log('DB error', err));
+.catch((err) => console.log('DB error', err));
 
 const app = express();
 
